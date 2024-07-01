@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+dubbo:
+  application:
+    logger: slf4j
+    name: dubbo-springboot-demo-provider
+  protocol:
+    name: dubbo
+    port: -1
+#  配置Nocas注册中心
+  registry:
+    address: nacos://localhost:8848
+    password: nacos
+    username: nacos
+    parameters:
+      namespace: d93fe2e5-d8d6-4c83-be9e-b99dd5c24fa8
+
+
+nacos:
+#  启动Nacos服务配置
+  config:
+    server-addr: localhost:8848
+    namespace: d93fe2e5-d8d6-4c83-be9e-b99dd5c24fa8
+    username: nacos
+    password: nacos
+
+    data-id: nacos-config
+    type: yaml
+    auto-refresh: true
+    bootstrap:
+      enable: true
+# 启动Nacos服务发现
+  discovery:
+    server-addr: localhost:8848
